@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nikkah Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<!-- SHARED ENVELOPE INTRO -->
+<section id="intro" class="invitation-intro" aria-label="Nikkah invitation cover">
+  <div class="intro-aura" aria-hidden="true"></div>
+  <div class="intro-flowers flower-left" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+  <div class="intro-flowers flower-right" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+  <button class="envelope" id="envelope" type="button" aria-label="Open Nikkah invitation">
+    <span class="env-back"></span>
+    <span class="env-letter">
+      <small>You are invited to the</small>
+      <strong>Nikkah</strong>
+      <em><span id="intro-b">B</span> &amp; <span id="intro-g">G</span></em>
+    </span>
+    <span class="env-front"></span>
+    <span class="env-flap"></span>
+    <span class="env-seal" aria-hidden="true">&#10087;</span>
+  </button>
+  <p class="intro-label">A wedding invitation</p>
+  <p class="tap-hint">Tap the seal to open</p>
+</section>
+
+<!-- INVITATION -->
+<main id="card" class="hidden">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="arch">
+      <div class="arch-inner">
+        <div class="flower f-tl" data-flower="130"></div>
+        <div class="flower f-tr" data-flower="130"></div>
+        <div class="flower f-bl" data-flower="110"></div>
+        <div class="flower f-br" data-flower="110"></div>
+
+        <div class="crescent" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><path d="M62 12a38 38 0 1 0 0 76a30 30 0 1 1 0-76z" /></svg>
+        </div>
+
+        <p class="arabic reveal">بسم الله الرحمن الرحيم</p>
+        <p class="eyebrow reveal">Together with their families</p>
+        <h1 class="names reveal">
+          <span id="n-bride" class="script"></span>
+          <span class="amp">&amp;</span>
+          <span id="n-groom" class="script"></span>
+        </h1>
+        <p class="sub reveal">request the honour of your presence<br>at their</p>
+        <h2 class="occasion reveal">Nikkah Ceremony</h2>
+        <div class="divider reveal"><i></i><b></b><i></i></div>
+        <p class="date-line reveal" id="date-line"></p>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- CINEMATIC CEREMONY IMAGE -->
+  <figure class="cinematic reveal">
+    <img src="assets/celebration.webp" alt="A pearl-white Nikkah setting with blush roses, wedding rings and an ornate Quran on a rehal" loading="lazy" decoding="async">
+    <figcaption><span>A sacred beginning</span><strong>Two hearts, one beautiful promise</strong></figcaption>
+  </figure>
+
+  <!-- VERSE -->
+  <section class="verse reveal">
+    <div class="rings" aria-hidden="true">
+      <svg viewBox="0 0 120 80"><circle cx="45" cy="40" r="26"/><circle cx="75" cy="40" r="26"/><circle class="gem" cx="60" cy="16" r="4"/></svg>
+    </div>
+    <p>And among His signs is that He created for you companions from among yourselves, so that you may find tranquility in them, and placed between you love and mercy.</p>
+    <span class="cite">Surah Ar-Rum &middot; 30:21</span>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="details">
+    <h3 class="section-title reveal"><span class="script">Save the date</span></h3>
+    <div class="cards">
+      <article class="info reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+        <h4>Date</h4>
+        <p id="d-date"></p>
+      </article>
+      <article class="info reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h4>Time</h4>
+        <p id="d-time"></p>
+      </article>
+      <article class="info reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+        <h4>Venue</h4>
+        <p id="d-venue"></p>
+        <small id="d-address"></small>
+      </article>
+    </div>
+    <a id="map-btn" class="btn ghost reveal" target="_blank" rel="noopener">View on map</a>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="countdown reveal">
+    <h3 class="section-title"><span class="script">Counting the moments</span></h3>
+    <div class="timer" id="timer">
+      <div><b id="c-d">00</b><span>Days</span></div>
+      <div><b id="c-h">00</b><span>Hours</span></div>
+      <div><b id="c-m">00</b><span>Minutes</span></div>
+      <div><b id="c-s">00</b><span>Seconds</span></div>
+    </div>
+  </section>
+
+  <!-- FAMILIES -->
+  <section class="families reveal">
+    <p class="eyebrow">With the blessings of</p>
+    <div class="fam-grid">
+      <div><h4>Bride's Family</h4><p id="f-bride"></p></div>
+      <div class="heart" aria-hidden="true">&#10084;</div>
+      <div><h4>Groom's Family</h4><p id="f-groom"></p></div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp reveal">
+    <p class="script big">Your presence is our gift</p>
+    <p class="muted" id="rsvp-note"></p>
+    <a id="rsvp-btn" class="btn" target="_blank" rel="noopener">RSVP on WhatsApp</a>
+  </section>
+
+  <footer>
+    <div class="flower" data-flower="70"></div>
+    <p class="script" id="foot-names"></p>
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
