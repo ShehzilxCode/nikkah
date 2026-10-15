@@ -8,7 +8,7 @@ const INVITE = {
   dateText: "Thursday, 12th November 2026",
   timeText: "4:00 PM onwards",
   venue: "Events Lawn",
-  address: "Plot # J-75, P.E.C.H.S Block 6, Near Ambala Bakery, Karachi. Cell: 0335-2972973, 021-3339665",
+  address: "Plot # J-75, P.E.C.H.S Block 6, Near Ambala Bakery, Karachi.",
   mapLink: "https://maps.app.goo.gl/ykJur5nAvdqNfJ3B8?g_st=aw",
   brideFamily: "Daughter of late Hafiz Syed Muhammad Shoaib",
   groomFamily: "Son of Abdul Shakeel",
