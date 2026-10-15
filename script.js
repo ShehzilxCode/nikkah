@@ -2,16 +2,16 @@
    EDIT YOUR DETAILS HERE
    ===================================================== */
 const INVITE = {
-  bride: "Bride Name",
-  groom: "Groom Name",
-  dateISO: "2026-12-12T16:00:00",          // used for the countdown
-  dateText: "Saturday, 12th December 2026",
+  bride: "Syeda Ansharah Shoaib",
+  groom: "Hamza Shakeel",
+  dateISO: "2026-11-12T16:00:00",          // used for the countdown
+  dateText: "Thursday, 12th November 2026",
   timeText: "4:00 PM onwards",
-  venue: "Venue Name",
-  address: "Street address, City",
-  mapLink: "https://maps.google.com",
-  brideFamily: "Mr. & Mrs. Bride's Parents\nBride's family names",
-  groomFamily: "Mr. & Mrs. Groom's Parents\nGroom's family names",
+  venue: "Events Lawn",
+  address: "Plot # J-75, P.E.C.H.S Block 6, Near Ambala Bakery, Karachi. Cell: 0335-2972973, 021-3339665",
+  mapLink: "https://maps.app.goo.gl/ykJur5nAvdqNfJ3B8?g_st=aw",
+  brideFamily: "Daughter of late Hafiz Syed Muhammad Shoaib",
+  groomFamily: "Son of Abdul Shakeel",
   rsvpNote: "Kindly confirm your attendance before 1st December",
   rsvpWhatsApp: "923000000000"             // country code + number, no + or spaces
 };
@@ -29,30 +29,26 @@ $("d-address").textContent = INVITE.address;
 $("map-btn").href = INVITE.mapLink;
 $("f-bride").innerHTML = INVITE.brideFamily.replace(/\n/g, "<br>");
 $("f-groom").innerHTML = INVITE.groomFamily.replace(/\n/g, "<br>");
+$("profile-bride").textContent = INVITE.bride;
+$("profile-groom").textContent = INVITE.groom;
+$("profile-bride-family").innerHTML = INVITE.brideFamily.replace(/\n/g, "<br>");
+$("profile-groom-family").innerHTML = INVITE.groomFamily.replace(/\n/g, "<br>");
+$("revealed-date").textContent = INVITE.dateText;
 $("rsvp-note").textContent = INVITE.rsvpNote;
 $("foot-names").textContent = `${INVITE.bride} & ${INVITE.groom}`;
 $("intro-b").textContent = initial(INVITE.bride);
 $("intro-g").textContent = initial(INVITE.groom);
 $("rsvp-btn").href = `https://wa.me/${INVITE.rsvpWhatsApp}?text=${encodeURIComponent("Assalamu Alaikum! I will be attending the Nikkah. ")}`;
 
-/* ---------- SVG flowers ---------- */
-function flowerSVG(size) {
-  const petals = 12;
-  let s = `<svg width="${size}" height="${size}" viewBox="-60 -60 120 120">`;
-  for (let ring = 0; ring < 3; ring++) {
-    const len = 52 - ring * 15, w = 14 - ring * 3, rot = ring * 15;
-    const fill = ["#f9c3d3", "#f3a1bb", "#e87b9f"][ring];
-    for (let i = 0; i < petals; i++) {
-      const a = (360 / petals) * i + rot;
-      s += `<path d="M0 0 C ${-w} ${-len * .35}, ${-w} ${-len * .85}, 0 ${-len} C ${w} ${-len * .85}, ${w} ${-len * .35}, 0 0z"
-        fill="${fill}" fill-opacity=".92" stroke="#fff" stroke-opacity=".6" stroke-width=".6" transform="rotate(${a})"/>`;
-    }
-  }
-  s += `<circle r="7" fill="#c9a36a"/><circle r="3.5" fill="#fff3c9"/></svg>`;
-  return s;
-}
-document.querySelectorAll("[data-flower]").forEach(el => {
-  el.innerHTML = flowerSVG(+el.dataset.flower);
+/* ---------- date reveal ---------- */
+const revealDateButton = $("reveal-date-btn");
+revealDateButton.addEventListener("click", () => {
+  const panel = $("date-reveal");
+  if (panel.classList.contains("date-is-revealed")) return;
+  panel.classList.add("date-is-revealed");
+  revealDateButton.setAttribute("aria-expanded", "true");
+  revealDateButton.querySelector("b").textContent = "Date Revealed";
+  burst(innerWidth / 2, innerHeight * .58, 34);
 });
 
 /* ---------- envelope open ---------- */
@@ -67,7 +63,7 @@ function openInvite() {
     document.body.classList.remove("locked");
     window.scrollTo(0, 0);
     initReveal();
-  }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 100 : 1600);
+  }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 100 : 2550);
 }
 env.addEventListener("click", openInvite);
 
@@ -119,7 +115,7 @@ function petal(x, y, burstMode) {
   };
 }
 function burst(x, y, n) { for (let i = 0; i < n; i++) parts.push(petal(x, y, true)); }
-for (let i = 0; i < 26; i++) parts.push(petal(Math.random() * innerWidth, Math.random() * innerHeight, false));
+for (let i = 0; i < 16; i++) parts.push(petal(Math.random() * innerWidth, Math.random() * innerHeight, false));
 function draw() {
   ctx.clearRect(0, 0, W, H);
   parts.forEach(p => {
@@ -130,7 +126,7 @@ function draw() {
     if (p.burst) { p.vy += .22; p.vx *= .985; p.life--; }
     ctx.save();
     ctx.translate(p.x, p.y); ctx.rotate(p.rot);
-    ctx.globalAlpha = p.burst ? Math.min(1, p.life / 40) : .85;
+    ctx.globalAlpha = p.burst ? Math.min(1, p.life / 40) : .68;
     ctx.fillStyle = p.c;
     ctx.beginPath();
     ctx.moveTo(0, -p.r);
