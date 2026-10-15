@@ -27,28 +27,29 @@
     </span>
     <span class="env-front"></span>
     <span class="env-flap"></span>
-    <span class="env-seal" aria-hidden="true">&#10087;</span>
+    <span class="env-ribbon ribbon-horizontal" aria-hidden="true"></span>
+    <span class="ribbon-bow" aria-hidden="true"><svg viewBox="0 0 240 132"><path class="ribbon-svg-tail ribbon-svg-tail-left" d="M112 62 C94 72 81 96 69 128 L99 114 L116 72 Z"></path><path class="ribbon-svg-tail ribbon-svg-tail-right" d="M128 62 C146 72 159 96 171 128 L141 114 L124 72 Z"></path><path class="ribbon-svg-loop ribbon-svg-loop-left" d="M119 59 C96 24 48 9 20 29 C-2 45 16 77 49 80 C75 82 98 71 119 62 Z"></path><path class="ribbon-svg-loop ribbon-svg-loop-right" d="M121 59 C144 24 192 9 220 29 C242 45 224 77 191 80 C165 82 142 71 121 62 Z"></path><path class="ribbon-svg-fold ribbon-svg-fold-left" d="M112 58 C86 49 58 43 29 47 C52 58 77 65 106 64"></path><path class="ribbon-svg-fold ribbon-svg-fold-right" d="M128 58 C154 49 182 43 211 47 C188 58 163 65 134 64"></path><ellipse class="ribbon-svg-knot" cx="120" cy="61" rx="24" ry="19"></ellipse></svg></span>
+    <span class="env-seal" aria-hidden="true"><span class="seal-mark">N</span><span class="seal-caption">Nikkah</span></span>
   </button>
   <p class="intro-label">A wedding invitation</p>
-  <p class="tap-hint">Tap the seal to open</p>
+  <p class="tap-hint">Tap to untie &amp; open</p>
 </section>
 
 <!-- INVITATION -->
 <main id="card" class="hidden">
-
   <!-- HERO -->
   <section class="hero">
     <div class="arch">
+      <div class="stage-glow" aria-hidden="true"></div>
+      <div class="stage-valance" aria-hidden="true"></div>
+      <div class="stage-curtain curtain-left" aria-hidden="true"></div>
+      <div class="stage-curtain curtain-right" aria-hidden="true"></div>
+      <div class="nikkah-chandelier" aria-hidden="true"><svg viewBox="0 0 140 160"><path d="M70 0v35M70 30c-34 4-52 22-55 47M70 30c34 4 52 22 55 47M70 35c-17 5-27 20-29 42M70 35c17 5 27 20 29 42M15 77v24M41 77v39M99 77v39M125 77v24M70 35v102"/><circle cx="15" cy="105" r="5"/><circle cx="41" cy="120" r="5"/><circle cx="99" cy="120" r="5"/><circle cx="125" cy="105" r="5"/><circle cx="70" cy="143" r="8"/></svg></div>
+      <img class="stage-floral stage-floral-left" src="assets/floral-spray.webp" alt="" aria-hidden="true">
+      <img class="stage-floral stage-floral-right" src="assets/floral-spray.webp" alt="" aria-hidden="true">
+      <div class="stage-candles stage-candles-left" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="stage-candles stage-candles-right" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="arch-inner">
-        <div class="flower f-tl" data-flower="130"></div>
-        <div class="flower f-tr" data-flower="130"></div>
-        <div class="flower f-bl" data-flower="110"></div>
-        <div class="flower f-br" data-flower="110"></div>
-
-        <div class="crescent" aria-hidden="true">
-          <svg viewBox="0 0 100 100"><path d="M62 12a38 38 0 1 0 0 76a30 30 0 1 1 0-76z" /></svg>
-        </div>
-
         <p class="arabic reveal">بسم الله الرحمن الرحيم</p>
         <p class="eyebrow reveal">Together with their families</p>
         <h1 class="names reveal">
@@ -67,9 +68,30 @@
 
   <!-- CINEMATIC CEREMONY IMAGE -->
   <figure class="cinematic reveal">
-    <img src="assets/celebration.webp" alt="A pearl-white Nikkah setting with blush roses, wedding rings and an ornate Quran on a rehal" loading="lazy" decoding="async">
+    <img src="assets/celebration-couple.webp" alt="A Nikkah bride and groom in white attire standing on opposite sides of a circular blush-and-white floral doorway" loading="lazy" decoding="async">
     <figcaption><span>A sacred beginning</span><strong>Two hearts, one beautiful promise</strong></figcaption>
   </figure>
+
+  <div class="floral-interlude reveal" aria-hidden="true"><img src="assets/floral-spray.webp" alt="" loading="lazy" decoding="async"></div>
+
+  <!-- BRIDE & GROOM -->
+  <section class="couple-profiles">
+    <p class="reel-kicker reveal">The bride &amp; the groom</p>
+    <h3 class="section-title reveal"><span class="script">Together, by His grace</span></h3>
+    <div class="profile-stack">
+      <article class="profile-card reveal">
+        <span>The Bride</span>
+        <h4 class="script" id="profile-bride"></h4>
+        <p id="profile-bride-family"></p>
+      </article>
+      <div class="profile-amp reveal" aria-hidden="true">&amp;</div>
+      <article class="profile-card reveal">
+        <span>The Groom</span>
+        <h4 class="script" id="profile-groom"></h4>
+        <p id="profile-groom-family"></p>
+      </article>
+    </div>
+  </section>
 
   <!-- VERSE -->
   <section class="verse reveal">
@@ -80,9 +102,22 @@
     <span class="cite">Surah Ar-Rum &middot; 30:21</span>
   </section>
 
+  <!-- DATE REVEAL -->
+  <section class="date-reveal reveal" id="date-reveal">
+    <p class="reel-kicker">Our special day</p>
+    <h3>Discover the date</h3>
+    <button class="heart-reveal" id="reveal-date-btn" type="button" aria-expanded="false">
+      <span class="heart-card">&#9825;</span><span class="heart-card">&#9825;</span><span class="heart-card">&#9825;</span>
+      <b>Reveal Date</b>
+    </button>
+    <p class="revealed-date script" id="revealed-date" aria-live="polite"></p>
+  </section>
+
   <!-- DETAILS -->
   <section class="details">
-    <h3 class="section-title reveal"><span class="script">Save the date</span></h3>
+    <p class="reel-kicker reveal">Programme details</p>
+    <div class="mosque-art reveal" aria-hidden="true"><svg viewBox="0 0 320 150"><path d="M25 129h270M50 129V75h35v54M235 129V75h35v54M117 129V69c0-30 19-48 43-58 24 10 43 28 43 58v60M97 129V91h126v38M142 129V94h36v35M61 75V45M259 75V45M53 45h16l-8-18zM251 45h16l-8-18zM160 11V0"/></svg></div>
+    <h3 class="section-title reveal"><span class="script">Nikkah Ceremony</span></h3>
     <div class="cards">
       <article class="info reveal">
         <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
@@ -133,7 +168,7 @@
   </section>
 
   <footer>
-    <div class="flower" data-flower="70"></div>
+    <img class="floral-footer" src="assets/floral-spray.webp" alt="" loading="lazy" decoding="async" aria-hidden="true">
     <p class="script" id="foot-names"></p>
   </footer>
 </main>
