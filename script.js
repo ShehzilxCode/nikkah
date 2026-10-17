@@ -26,7 +26,15 @@ $("d-date").textContent = INVITE.dateText;
 $("d-time").textContent = INVITE.timeText;
 $("d-venue").textContent = INVITE.venue;
 $("d-address").textContent = INVITE.address;
-$("map-btn").href = INVITE.mapLink;
+// Map embed — build iframe src from venue+address, link goes to original mapLink
+(function(){
+  const wrap = document.getElementById("map-wrap");
+  const frame = document.getElementById("map-frame");
+  if (!wrap || !frame) return;
+  const q = encodeURIComponent(INVITE.venue + " " + INVITE.address);
+  frame.src = "https://maps.google.com/maps?q=" + q + "&output=embed&z=16";
+  wrap.href = INVITE.mapLink;
+})();
 $("f-bride").innerHTML = INVITE.brideFamily.replace(/\n/g, "<br>");
 $("f-groom").innerHTML = INVITE.groomFamily.replace(/\n/g, "<br>");
 $("profile-bride").textContent = INVITE.bride;
@@ -38,7 +46,6 @@ $("rsvp-note").textContent = INVITE.rsvpNote;
 $("foot-names").textContent = `${INVITE.bride} & ${INVITE.groom}`;
 $("intro-b").textContent = initial(INVITE.bride);
 $("intro-g").textContent = initial(INVITE.groom);
-$("rsvp-btn").href = `https://wa.me/${INVITE.rsvpWhatsApp}?text=${encodeURIComponent("Assalamu Alaikum! I will be attending the Nikkah. ")}`;
 
 /* ---------- date reveal ---------- */
 const revealDateButton = $("reveal-date-btn");
