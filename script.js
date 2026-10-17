@@ -69,6 +69,10 @@ function openInvite() {
     $("card").classList.remove("hidden");
     document.body.classList.remove("locked");
     window.scrollTo(0, 0);
+    const audio = new Audio("assets/nikkah.mp3");
+    audio.loop = true;
+    audio.volume = 0.7;
+    audio.play().catch(() => {});
     initReveal();
   }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 100 : 2550);
 }
