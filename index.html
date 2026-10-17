@@ -136,7 +136,10 @@
         <small id="d-address"></small>
       </article>
     </div>
-    <a id="map-btn" class="btn ghost reveal" target="_blank" rel="noopener">View on map</a>
+    <a id="map-wrap" class="map-wrap reveal" target="_blank" rel="noopener" aria-label="Open venue in Google Maps">
+      <iframe id="map-frame" class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Venue location map" tabindex="-1"></iframe>
+      <span class="map-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Open in Google Maps</span>
+    </a>
   </section>
 
   <!-- COUNTDOWN -->
@@ -164,7 +167,6 @@
   <section class="rsvp reveal">
     <p class="script big">Your presence is our gift</p>
     <p class="muted" id="rsvp-note"></p>
-    <a id="rsvp-btn" class="btn" target="_blank" rel="noopener">RSVP on WhatsApp</a>
   </section>
 
   <footer>
